@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-
 </head>
 <body>
 <div class="container">
@@ -12,49 +11,117 @@
         Profile
     </h1>
 
-    <div>
-        Username:  <input id="usernameFld"/>
+    <div class="alert alert-success" role="alert">
+        Profile successfully saved
     </div>
 
-    <div>
-        Phone: <input id="phoneFld"/>
+    <div class="mb-3 row">
+        <label for="username"
+               class="col-sm-2 col-form-label">
+            Username
+        </label>
+        <div class="col-sm-10">
+            <input type="text"
+                   readonly
+                   class="form-control"
+                   id="username"
+                   title="Please enter a valid username"
+                   value="Johnny"/>
+        </div>
     </div>
 
-    <div>
-        Email: <input id="emailFld"/>
+
+
+    <div class="mb-3 row">
+        <label
+                for="phone"
+                class="col-sm-2 col-form-label">
+            Phone
+        </label>
+        <div class="col-sm-10">
+            <input type="tel"
+                   class="form-control"
+                   placeholder="(617)123-5678"
+                   title="Please enter a valid phone number"
+                   id="phone"/>
+        </div>
     </div>
 
-    <div>
-        Date of Birth: <input id="dobFld"/>
+
+
+    <div class="mb-3 row">
+        <label
+                for="email"
+                class="col-sm-2 col-form-label">
+            Email
+        </label>
+        <div class="col-sm-10">
+            <input type="email"
+                   class="form-control"
+                   placeholder="me@example.com"
+                   title="Please enter a valid email"
+                   id="email"/>
+        </div>
     </div>
 
-    <div>
-        Role: <input id="roleFld"/>
-        <select>
-            <option value="Faculty"></option>
-            <option>value = "Student"</option>
-            <option>value = "Admin"</option>
-        </select>
+
+
+    <div class="mb-3 row">
+        <label
+                for="role"
+                class="col-sm-2 col-form-label">
+            Role
+        </label>
+        <div class="col-sm-10">
+            <select type="email"
+                    class="form-control"
+                    placeholder="me@example.com"
+                    title="Please select a role"
+                    id="role">
+                <option>Faculty</option>
+                <option>Student</option>
+                <option>Admin</option>
+            </select>
+        </div>
     </div>
 
-    <div>
-        <a>
-            <button id="updateBtn">Update</button>
-        </a>
+
+
+    <div class="mb-3 row">
+        <label
+                for="DOB"
+                class="col-sm-2 col-form-label">
+            Date of Birth
+        </label>
+        <div class="col-sm-10">
+            <input type="date"
+                   class="form-control"
+                   placeholder="2021/1/24"
+                   title="Please select a date"
+                   id="DOB"/>
+        </div>
     </div>
 
-    <div>
+
+
+    <div class="d-grid gap-2">
+        <button class="btn btn-success btn-block"
+                type="button">
+            Update
+        </button>
+    </div>
+
+    <br>
+
+    <div class="d-grid gap-2">
         <a href="../index.html">
-            <button id="logoutBtn">Logout</button>
+            <button class="btn btn-danger btn-block"
+                    type="button">
+                Logout
+            </button>
         </a>
-    </div>
-
-    <div class="alertFld">
-
     </div>
 </div>
-
-
 
 </body>
 </html>

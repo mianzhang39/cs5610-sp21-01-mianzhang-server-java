@@ -14,8 +14,7 @@
 .lhs_bar{
     background-color:darkgrey;
     padding-top: 100px;
-    padding-left: 25px;
-    position: fixed;
+    width: 100%;
 }
 
 .item{
@@ -23,10 +22,10 @@
     color:white;
 }
 
-.pills a{
+.pills {
     background-color:darkgrey;
+}
+
+.rhs_bar{
     padding-top: 100px;
-    position: fixed;
-    width: 1800px;
-    padding-left: 800px;
 }

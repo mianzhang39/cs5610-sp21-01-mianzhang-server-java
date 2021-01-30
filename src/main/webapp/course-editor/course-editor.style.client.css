@@ -24,8 +24,9 @@
 
 .pills {
     background-color:darkgrey;
+    color: white;
 }
 
-.rhs_bar{
+.rhs_pills{
     padding-top: 100px;
 }

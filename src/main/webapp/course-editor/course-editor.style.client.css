@@ -1,0 +1,32 @@
+.wbdv-sticky-nav-bar{
+    background-color: dimgrey;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.tabfont_color{
+    color: white;
+}
+
+.lhs_bar{
+    background-color:darkgrey;
+    padding-top: 100px;
+    padding-left: 25px;
+    position: fixed;
+}
+
+.item{
+    background-color: dimgrey;
+    color:white;
+}
+
+.pills a{
+    background-color:darkgrey;
+    padding-top: 100px;
+    position: fixed;
+    width: 1800px;
+    padding-left: 800px;
+}

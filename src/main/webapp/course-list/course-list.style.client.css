@@ -25,8 +25,3 @@
 .button2_color{
     color: darkred;
 }
-
-.container .col-1 {
-    position: absolute;
-    right: 80px;
-}

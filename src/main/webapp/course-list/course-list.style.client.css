@@ -19,9 +19,14 @@
 }
 
 .button1_color{
-    color: red;
+    color: #ff0000;
 }
 
 .button2_color{
     color: darkred;
+}
+
+.container .col-1 {
+    position: absolute;
+    right: 80px;
 }

@@ -129,25 +129,52 @@ var $lastnameFld
 var $roleFld
 var $createBtn
 var theTablebody
+var $updateBtn
+var userService = new AdminUserServiceClient()
 
-var users =[];
+var users = [];
 
 
 function createUser(user){
-    users.push(user)
-    renderUsers(users)
-
+    userService.createUser(user)
+        .then(function (actualUser){
+            users.push(actualUser)
+            renderUsers(users)
+        })
 }
 
 
+var selectedUser = null
+function selectUser(event){
+    var selectBtn = jQuery(event.currentTarget)
+    var theId = selectBtn.attr('id')
+    selectedUser = users.find(user => user._id === theId)
+    $usernameFld.val(selectedUser.Username)
+    $passwordFld.val(selectedUser.Password)
+    $firstnameFld.val(selectedUser.FirstName)
+    $lastnameFld.val(selectedUser.LastName)
+    $roleFld.val(selectedUser.Role)
+}
+
+
+
+
+
 function deleteUser(event){
-    var deleteBtn = jQuery(event.target)
-    theClass = deleteBtn.attr("class")
-    theId = deleteBtn.attr("id")
-    // courses.splice()
-    // console.log(theId)
-    users.splice(theId,1)
-    renderUsers(users)
+    console.log(event.currentTarget)
+    var deleteBtn = jQuery(event.currentTarget)
+    var theClass = deleteBtn.attr('class')
+    var theIndex = deleteBtn.attr('id')
+    var theId = users[theIndex]._id
+    console.log(theClass)
+    console.log(theIndex)
+
+    userService.deleteUser(theId)
+        .then(function (status){
+            users.splice(theIndex,1)
+            renderUsers(users)
+        })
+
 }
 
 
@@ -163,16 +190,36 @@ function renderUsers(users) {
                         <td>${user.LastName}</td>
                         <td>${user.Role}</td>
                         <td>
-                            <button class="wbdv-delete" id="${i}">Delete</button>
-                            <button>Select</button>
+                            <button class="wbdv-delete" id="${i}">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <button class="wbdv-select" id="${user._id}">
+                                <i class="fa fa-pencil"></i>
+                            </button>
                         </td>
                         </tr>
                         `)
     }
     jQuery(".wbdv-delete")
         .click(deleteUser)
+    jQuery(".wbdv-select")
+        .click(selectUser)
 }
 // renderUsers(users)
+
+
+function updateUser (){
+    selectedUser.Username = $usernameFld.val()
+    selectedUser.Password = $passwordFld.val()
+    selectedUser.Firstname = $firstnameFld.val()
+    selectedUser.Lastname = $lastnameFld.val()
+    selectedUser.Role = $roleFld.val()
+    userService.updateUser(selectedUser._id,selectedUser).then(function (status){
+        var index = users.findIndex(user => user._id === selectedUser._id)
+        users[index] = selectedUser
+        renderUsers(users)
+    })
+}
 
 
 
@@ -183,7 +230,12 @@ function init(){
     $lastnameFld = $(".wbdv-lastname-fld")
     $roleFld = $(".wbdv-role-fld")
     $createBtn = $(".wbdv-create-btn")
+    $updateBtn = $(".wbdv-update-btn")
     theTablebody = jQuery("tbody")
+
+
+
+    $updateBtn.click(updateUser)
 
     $createBtn.click(function (){
         var newUser = {
@@ -200,6 +252,14 @@ function init(){
         $roleFld.val('')
 
 
-    })
+    }
+    )
+    userService.findAllUsers()
+        .then(function (actualUsersFromServer){
+        users = actualUsersFromServer
+            renderUsers(users)
+        })
+
+
 }
 jQuery(init)

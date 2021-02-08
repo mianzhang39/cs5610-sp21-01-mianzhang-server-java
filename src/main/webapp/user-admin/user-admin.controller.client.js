@@ -171,8 +171,6 @@ function renderUsers(users) {
     }
     jQuery(".wbdv-delete")
         .click(deleteUser)
-
-    )
 }
 // renderUsers(users)
 

@@ -1,7 +1,6 @@
 function AdminUserServiceClient() {
     this.createUser = createUser;
     this.findAllUsers = findAllUsers;
-    this.findUserById = findUserById;
     this.deleteUser = deleteUser;
     this.updateUser = updateUser;
     this.url = 'https://wbdv-generic-server.herokuapp.com/api/001315994/users';
@@ -23,7 +22,6 @@ function AdminUserServiceClient() {
             return response.json()
         })
     }
-
     function updateUser(username, user) {
         return fetch(`${self.url}/${username}`,
             {

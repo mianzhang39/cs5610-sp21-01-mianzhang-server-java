@@ -1,38 +1,38 @@
-function CourseServiceClient() {
-    this.createCourse = createCourse;
-    this.findAllCourses = findAllCourses;
-    this.findCourseById = findCourseById;
-    this.deleteCourse = deleteCourse;
-    this.updateCourse = updateCourse;
-    this.url = 'https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses';
+function UserServiceClient() {
+    this.createUser = createUser;
+    this.findAllUsers = findAllUsers;
+    this.findUserById = findUserById;
+    this.deleteUser = deleteUser;
+    this.updateUser = updateUser;
+    this.url = 'https://wbdv-generic-server.herokuapp.com/api/001315994/users';
     var self = this;
-    function createCourse(course) {
-        return fetch(self.url, {
+    function createUser(user) {
+        return fetch(self.url,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(course)
+            body: JSON.stringify(user)
         }).then(function (response) {
             return response.json()
         })
     }
-    function findAllCourses() {
+    function findAllUsers() {
         return fetch(self.url)
             .then(function (response) {
                 return response.json()
             })
     }
-    function findCourseById(courseId) {
+    function findCourseById(Username) {
 
     }
-    function updateCourse(courseId, course) {
-        return fetch(`${self.url}/${courseId}`, {
+    function updateCourse(username, user) {
+        return fetch(`${self.url}/${username}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(course)
+            body: JSON.stringify(user)
         }).then(response => response.json())
     }
     function deleteCourse(courseId) {

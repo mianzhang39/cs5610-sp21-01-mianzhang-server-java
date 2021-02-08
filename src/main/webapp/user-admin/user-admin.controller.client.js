@@ -211,19 +211,13 @@ function renderUsers(users) {
 function updateUser (){
     selectedUser.Username = $usernameFld.val()
     selectedUser.Password = $passwordFld.val()
-    selectedUser.Firstname = $firstnameFld.val()
-    selectedUser.Lastname = $lastnameFld.val()
+    selectedUser.FirstName = $firstnameFld.val()
+    selectedUser.LastName = $lastnameFld.val()
     selectedUser.Role = $roleFld.val()
     userService.updateUser(selectedUser._id,selectedUser).then(function (status){
         var index = users.findIndex(user => user._id === selectedUser._id)
         users[index] = selectedUser
         renderUsers(users)
-        $usernameFld.val('')
-        $passwordFld.val('')
-        $firstnameFld.val('')
-        $lastnameFld.val('')
-        $roleFld.val('')
-
     })
 }
 

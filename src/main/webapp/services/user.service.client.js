@@ -69,9 +69,7 @@ function AdminUserServiceClient() {
             return response.json()
         })
     }
-    function findUserById(username) {
 
-    }
     function updateUser(username, user) {
         return fetch(`${self.url}/${username}`,
             {

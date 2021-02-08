@@ -203,6 +203,5 @@ function init(){
 
 
     })
-    // renderUsers(users)
 }
 jQuery(init)

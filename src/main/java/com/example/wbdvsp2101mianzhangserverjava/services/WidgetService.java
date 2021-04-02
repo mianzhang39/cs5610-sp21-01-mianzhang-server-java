@@ -27,15 +27,22 @@ public class WidgetService {
     public List<Widget> findWidgetsForTopic(String topicId) {
         return repository.findWidgetsForTopic(topicId);
     }
+
     public Widget findWidgetById(Long id) {
+
         return repository.findWidgetById(id);
     }
+
     public Integer updateWidget(Long id, Widget newWidget) {
         Widget originalWidget = findWidgetById(id);
 
         originalWidget.setText(newWidget.getText());
         originalWidget.setSrc(newWidget.getSrc());
         originalWidget.setOrdered(newWidget.getOrdered());
+        originalWidget.setHeight(newWidget.getHeight());
+        originalWidget.setWidth(newWidget.getWidth());
+        originalWidget.setSize(newWidget.getSize());
+        originalWidget.setType(newWidget.getType());
         repository.save(originalWidget);
         return 1;
     }
